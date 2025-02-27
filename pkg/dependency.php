@@ -2,9 +2,10 @@
 
 return [
   'js' => [
-    '/fit/plugin.js',
+    $PATH . '/plugin.js',
+    $PATH . '/plugin.fitparent.js',
   ],
   'css' => [
-    '/fit/style.css',
+    $PATH . '/style.css',
   ],
 ];
