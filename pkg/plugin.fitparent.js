@@ -83,11 +83,16 @@
       this.fit = function() {
         if (typeof(that.dd.fitHeightAs)=='string') {
           var parent = $(that.dd.fitHeightAs);
-          //console.log('CH', parent);//, $(children[1]).innerHeight());
+          //, $(children[1]).innerHeight());
           var box = that.getBox(that.element, parent);
           var my = Math.floor((box.wHeight - box.eHeight)/2);
-          $(that.element).css('margin-top', my+'px');
+          my = Math.max(0,my);
+          var t = 0;
+          if (typeof that.dd.fitTop == 'string') t = Number(that.dd.fitTop);
+          if (typeof that.dd.fitTop == 'number') t = Number(that.dd.fitTop);
+          $(that.element).css('margin-top', (t+my)+'px');
           $(that.element).css('margin-bottom', my+'px');
+          //console.log('CH', my, parent, that.element);
         }
         if (typeof(that.dd.fitWidthAs)=='string') {
           var parent = $(that.dd.fitWidthAs);
